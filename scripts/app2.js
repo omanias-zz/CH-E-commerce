@@ -1,3 +1,16 @@
+//FUNCIONES
+
+function addToCart(cart) {
+
+}
+
+function removeFromCart(cart) {
+
+}
+
+function clearCart(cart) {
+
+}
 
 // Object Constructor
 
@@ -23,10 +36,14 @@ const product10 = new Product("Disco duro externo", "WD", 9499);
 
 const products = [product1, product2, product3, product4, product5, product6, product7, product8, product9, product10];
 
-products.sort((a, b) => {
-    return a.precio - b.precio;
-});
+localStorage.setItem("products", JSON.stringify(products));
 
-products.forEach((e) => {
-    console.log(`${e.componente} ${e.marca} ${e.precio}`);
-});
+// products.sort((a, b) => {
+//     return a.precio - b.precio;
+// });
+
+// products.forEach((e) => {
+//     console.log(`${e.componente} ${e.marca} ${e.precio}`);
+// });
+
+
