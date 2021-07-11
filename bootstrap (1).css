@@ -10802,3 +10802,21 @@ th {
 .card-title, .card-header {
   color: inherit;
 }
+
+.btnIn{
+  display: flex;
+  justify-content:center;
+  margin-top: 2rem;
+  border:#ced4da;
+}
+
+
+.btnForm{
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+
+.btnForm div{
+  border: 2px solid #ced4da;
+}
