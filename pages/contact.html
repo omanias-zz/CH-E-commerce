@@ -36,28 +36,28 @@
 
     <hr>
 
-    <form class="container">
+    <form id="form" class="container">
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Consulta</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea id="text" class="form-control" name="text" rows="3"></textarea>
         </div>
-
-
 
     </form>
 
     <div class="btnForm">
-        <div class="">
-            <input class="btn btn-success" type="submit" value="Enviar">
-        </div>
-        <div class="">
-            <input class="btn btn-danger" type="submit" value="Limpiar formulario">
+        <div>
+            <input id="btnSubmit" class="btn btn-success" type="submit" value="Enviar">
         </div>
     </div>
+
+
+    <div class="container" id="print"></div>
+
+
 
     <hr>
 
