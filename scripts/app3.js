@@ -6,8 +6,8 @@ $('#btnSubmit').on("click", enviarFormulario);
 const suscripcion = [];
 
 function enviarFormulario() {
-    const mail = $("#email").value;
-    const text = $("#text").value;
+    const mail = $("#email").val();
+    const text = $("#text").val();
     suscripcion.push({ mail: mail, text: text });
 
     imprimirSaludo()
