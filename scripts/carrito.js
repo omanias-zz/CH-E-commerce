@@ -18,7 +18,8 @@ function addToCartClicked(event) {
     const productTitle = item.querySelector('.card-header').textContent;
     const productPrice = item.querySelector('.card-text').textContent;
     const productImage = item.querySelector('img').src;
-    
+
+//Aqui no pude agregar JQuery porque no funcionaba, me imprime un error con item.    
     addToShoppingCart(productTitle, productPrice, productImage);
     imprimirCarrito();
 
