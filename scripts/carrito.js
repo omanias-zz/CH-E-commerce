@@ -1,34 +1,38 @@
 
-const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
-addToShoppingCartButtons.forEach((addToCartButton) => {
-    addToCartButton.addEventListener('click', addToCartClicked);
+const addToShoppingCartButtons = $('.addToCart');
+addToShoppingCartButtons.each(function (index, element) {
+    element.addEventListener('click', addToCartClicked);
 });
 
-const shoppingCartItemsContainer = document.querySelector('.content-cart tbody');
+const shoppingCartItemsContainer = $('.content-cart tbody');
 
 const Lista = [];
 
 
 function addToCartClicked(event) {
+
+
     const button = event.target;
     const item = button.closest('.col');
 
-
     const productTitle = item.querySelector('.card-header').textContent;
-    const productPrice = item.querySelector('p').textContent;
+    const productPrice = item.querySelector('.card-text').textContent;
     const productImage = item.querySelector('img').src;
-
-
+    
     addToShoppingCart(productTitle, productPrice, productImage);
+    imprimirCarrito();
+
+
 }
+
 
 function addToShoppingCart(productTitle, productPrice, productImage) {
     const newItem = {
+        
         productTitle, productPrice, productImage
     }
 
     Lista.push(newItem)
-
     localStorage.setItem('Lista', JSON.stringify(Lista));
 };
 
@@ -38,33 +42,55 @@ function imprimirCarrito() {
 
     let imprimir = JSON.parse(localStorage.getItem('Lista'));
 
+    for (let i = 0; i < imprimir.length; i++) {
+     
 
-    imprimir.forEach(element => {
-        listado.innerHTML += `
-        <tr>
-            <td><img src="${element.productImage}"></td>
-            <th>${element.productTitle}</th>
-            <th>${element.productPrice}</th>
-            <td><button type="button" class="btn 
-            btn-danger" id="eliminar">Eliminar del carrito</button></td>
-        </tr>`
+let tr = document.createElement('tr');
 
-    });
+        let td1 = document.createElement('th')
+        
+        td1.textContent = imprimir[i].productTitle;
+        
+        tr.append(td1);
+
+        let td2 = document.createElement('th')
+
+        td2.textContent = imprimir[i].productPrice;
+
+        tr.append(td2);
+
+        let td3 = document.createElement('th')
+
+        td3.textContent = imprimir[i].productImage;
+
+        tr.append(td3);
+
+        
+        let btn = document.createElement('button')
+        btn.setAttribute('class', 'shoppingCartItem')
+        btn.textContent = 'Eliminar del carrito'
+        btn.addEventListener('click', removeShoppingCartItem)
+        td2.append(btn)
+        tr.append(td2)
+        listado.append(tr)
+
+}
 }
 
 function removeShoppingCartItem(e) {
-    const buttonClicked = e.target;
-    buttonClicked.closest('.shoppingCartItem').remove();
+
+    const button = e.target;
+    const item = button.closest('tr');
+    const index = item.index;
+    Lista.splice(index, 1);
+    localStorage.setItem('Lista', JSON.stringify(Lista));
+    item.remove();
+
 
 }
 
-const btnCarrito = document.getElementById("carrito");
-btnCarrito.addEventListener('click', imprimirCarrito);
-
-
-const btnEliminar = document.getElementById("eliminar");
-btnEliminar.addEventListener('click', eliminar);
-
-
-
+// const btnCarrito = $("#carrito");
+// btnCarrito.on('click', function () {
+//     imprimirCarrito();
+// })
 
