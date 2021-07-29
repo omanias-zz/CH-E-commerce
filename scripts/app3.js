@@ -1,13 +1,13 @@
-const btnSubmit = $("#btnSubmit");
-$('#btnSubmit').on("click", enviarFormulario);
+const btnSubmit = document.getElementById("btnSubmit");
+btnSubmit.addEventListener("click", enviarFormulario);
 
 
 
 const suscripcion = [];
 
 function enviarFormulario() {
-    const mail = $("#email").val();
-    const text = $("#text").val();
+    const mail = document.getElementById("email").value;
+    const text = document.getElementById("text").value;
     suscripcion.push({ mail: mail, text: text });
 
     imprimirSaludo()
@@ -16,7 +16,8 @@ function enviarFormulario() {
 
 function imprimirSaludo() {
 
-    const print = $("#print");
+
+    const print = document.getElementById("print");
 
     suscripcion.forEach(element => {
         print.innerHTML += `<p> Gracias por tu consulta, nos estaremos comunicando a tu direccion de email ${element.mail}</p>`
