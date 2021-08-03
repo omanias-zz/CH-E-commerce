@@ -19,6 +19,7 @@ function addToCartClicked(event) {
     const productPrice = item.querySelector('.card-text').textContent;
     const productImage = item.querySelector('img').src;
     addToShoppingCart(productTitle, productPrice, productImage);
+    listado.innerHTML = ''
     imprimirCarrito();
 }
 
@@ -91,3 +92,6 @@ function evento() {
 }
 
 $('.btn-outline-info').on('click', evento);
+
+
+
