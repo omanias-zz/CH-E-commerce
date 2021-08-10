@@ -4,7 +4,7 @@ addToShoppingCartButtons.each(function (index, element) {
     element.addEventListener('click', addToCartClicked);
 });
 
-const shoppingCartItemsContainer = $('.content-cart tbody');
+// const shoppingCartItemsContainer = $('.content-cart tbody');
 
 const Lista = [];
 
@@ -84,6 +84,13 @@ function removeShoppingCartItem(e) {
     localStorage.setItem('Lista', JSON.stringify(Lista));
     item.remove();
 }
+
+
+//sumar precios de productos
+
+
+
+
 
 //ANIMACIONES
 

@@ -24,6 +24,8 @@ function imprimirSaludo() {
     })
 }
 
+//API PUBLICA CON JSON
+
 
 let url = 'https://jsonplaceholder.typicode.com/users'
 
