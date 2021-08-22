@@ -86,18 +86,14 @@ function removeShoppingCartItem(e) {
 }
 
 
-//sumar precios de productos
 
-
-function sumarPrecios() {
-    let precioTotal = 0;
-
-    for (let i = 0; i < Lista.length; i++) {
-        precioTotal += parseInt(Lista[i].productPrice);
-    }
-    $('#precioTotal').text(precioTotal);
-
+function clearCart() {
+    $('#listado').empty()
+    window.localStorage.clear()
+    Lista = []
 }
+
+$('#acceptBuy').on('click', clearCart)
 
 
 
